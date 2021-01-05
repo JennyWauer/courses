@@ -12,6 +12,17 @@ h1 {
     margin-bottom: 0.25em;
 }
 
+label {
+    display: inline-block;
+    width: 5%;
+    margin-bottom: 0.25em;
+    /* text-align: right; */
+}
+
+.submit {
+    padding: 0 0.5em;
+}
+
 table {
     border: 0.15em solid black;
     border-collapse: collapse;
