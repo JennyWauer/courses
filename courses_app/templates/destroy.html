@@ -9,8 +9,8 @@
 </head>
 <body>
     <h1>Are you sure you want to delete the following course?</h1>
-    <p>Name: </p>
-    <p>Description:</p>
+    <p>Name: {{ course.course.name }}</p>
+    <p>Description: {{ course.desc }}</p>
     <button>No</button>
     <button class="yes">Yes! I want to delete this</button>
 </body>

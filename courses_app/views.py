@@ -12,7 +12,10 @@ def index(request):
     return render(request, 'index.html', context)
 
 def destroy(request, desc_id):
-    return render(request, 'destroy.html')
+    context = {
+        "course": Description.objects.get(id=desc_id),
+    }
+    return render(request, 'destroy.html', context)
 
 def add_course(request):
     if request.method == 'GET':
