@@ -24,3 +24,8 @@ button {
     background-color: maroon;
     color: white;
 }
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
