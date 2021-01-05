@@ -9,7 +9,15 @@
 </head>
 <body>
     <h1>Add a new course</h1>
-    <form>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <form action="/add_course" method="POST">
+        {% csrf_token %}
         <div>
             <label for="name">Name:</label>
             <input type="text" name="name">
@@ -26,6 +34,14 @@
         <th>Description</th>
         <th>Date Added</th>
         <th>Actions</th>
+        {% for desc in descriptions %}
+            <tr>
+                <td>{{ desc.course.name }}</td>
+                <td>{{ desc.desc }}</td>
+                <td>{{ desc.course.created_at }}</td>
+                <td><a href="/destroy">remove</a></td>
+            </tr>
+        {% endfor %}
     </table>
 </body>
 </html>

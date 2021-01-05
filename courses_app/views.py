@@ -1,9 +1,29 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import *
 
+from django.contrib import messages
+
 def index(request):
-    return render(request, 'index.html')
+    context = {
+        "courses": Course.objects.all(),
+        "descriptions": Description.objects.all()
+    }
+    return render(request, 'index.html', context)
 
 def destroy(request):
     return render(request, 'destroy.html')
+
+def add_course(request):
+    if request.method == 'GET':
+        return redirect('/')
+    if request.method == 'POST':
+        errors = Description.objects.basic_validator(request.POST)
+        if len(errors) > 0:
+            for key, value in errors.items():
+                messages.error(request, value)
+            return redirect('/')
+        else:        
+            new_course = Course.objects.create(name=request.POST['name'])
+            Description.objects.create(desc=request.POST['desc'],course=Course.objects.get(id=new_course.id))
+            return redirect('/')
