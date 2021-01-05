@@ -11,7 +11,7 @@ def index(request):
     }
     return render(request, 'index.html', context)
 
-def destroy(request):
+def destroy(request, desc_id):
     return render(request, 'destroy.html')
 
 def add_course(request):
