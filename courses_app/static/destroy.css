@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 2em;
+    width: 100%;
+}
+
+h1, p {
+    margin-bottom: 0.5em;
+}
+
+button {
+    box-shadow: 0.15em 0.15em grey;
+    margin-top: 1em;
+    margin-left: 1em;
+    padding: 0 0.5em;
+
+}
+
+.yes {
+    background-color: maroon;
+    color: white;
+}
