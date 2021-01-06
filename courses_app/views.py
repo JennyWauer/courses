@@ -30,3 +30,9 @@ def add_course(request):
             new_course = Course.objects.create(name=request.POST['name'])
             Description.objects.create(desc=request.POST['desc'],course=Course.objects.get(id=new_course.id))
             return redirect('/')
+
+def destroy_course(request):
+    if request.method == 'POST':
+        course_to_destroy = Course.objects.get(id=request.POST['course_id'])
+        course_to_destroy.delete()
+        return redirect('/')
