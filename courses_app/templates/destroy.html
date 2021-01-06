@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'destroy.css' %}">
     <title>Delete a course</title>
 </head>
+
 <body>
     <h1>Are you sure you want to delete the following course?</h1>
     <p>Name: {{ course.course.name }}</p>
@@ -15,10 +17,12 @@
         <button><a href="/">No</a></button>
         <form action="/destroy_course" method="POST">
             {% csrf_token %}
-            <button type="submit" name="course_id" value="{{ course.course.id }}" class="yes">Yes! I want to delete this</button>
+            <button type="submit" name="course_id" value="{{ course.course.id }}" class="yes">Yes! I want to delete
+                this</button>
         </form>
     </div>
-    
-    
+
+
 </body>
+
 </html>

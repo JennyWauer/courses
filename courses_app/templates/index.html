@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>Courses</title>
 </head>
+
 <body>
     <h1>Add a new course</h1>
     {% if messages %}
@@ -24,7 +26,7 @@
         </div>
         <div>
             <label for="desc">Description:</label>
-        <input type="text" name="desc">
+            <input type="text" name="desc">
         </div>
         <input type="submit" name="submit" value="Add" class="submit">
     </form>
@@ -35,13 +37,14 @@
         <th>Date Added</th>
         <th>Actions</th>
         {% for desc in descriptions %}
-            <tr>
-                <td>{{ desc.course.name }}</td>
-                <td>{{ desc.desc }}</td>
-                <td>{{ desc.course.created_at }}</td>
-                <td><a href="/destroy/{{ desc.id }}">remove</a></td>
-            </tr>
+        <tr>
+            <td>{{ desc.course.name }}</td>
+            <td>{{ desc.desc }}</td>
+            <td>{{ desc.course.created_at }}</td>
+            <td><a href="/destroy/{{ desc.id }}">remove</a></td>
+        </tr>
         {% endfor %}
     </table>
 </body>
+
 </html>
