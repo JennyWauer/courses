@@ -11,11 +11,14 @@
     <h1>Are you sure you want to delete the following course?</h1>
     <p>Name: {{ course.course.name }}</p>
     <p>Description: {{ course.desc }}</p>
-    <button><a href="/">No</a></button>
-    <form action="/destroy_course" method="POST">
-        {% csrf_token %}
-        <button type="submit" name="course_id" value="{{ course.course.id }}" class="yes">Yes! I want to delete this</button>
-    </form>
+    <div>
+        <button><a href="/">No</a></button>
+        <form action="/destroy_course" method="POST">
+            {% csrf_token %}
+            <button type="submit" name="course_id" value="{{ course.course.id }}" class="yes">Yes! I want to delete this</button>
+        </form>
+    </div>
+    
     
 </body>
 </html>
